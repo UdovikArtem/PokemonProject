@@ -4,7 +4,7 @@ import com.example.pokemonproject.R
 import com.example.pokemonproject.model.Pokemon
 
 object PokemonRepository {
-    private val pokemons: List<Pokemon> = listOf(
+    private val pokemons: HashMap<Int, Pokemon> = HashMap(listOf(
         Pokemon(
             id = 1,
             name = "Bulbasaur",
@@ -45,10 +45,9 @@ object PokemonRepository {
             type = listOf("Fire"),
             image = R.drawable.pokemon5
         )
-    )
+    ).associateBy { it.id })
+
     fun getPokemonById(id: Int): Pokemon?{
-        return pokemons.find {
-            it.id == id
-        }
+        return pokemons[id]
     }
 }

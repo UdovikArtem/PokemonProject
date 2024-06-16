@@ -1,6 +1,7 @@
 package com.example.pokemonproject
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pokemonproject.databinding.ActivityAboutPokemonBinding
 import com.example.pokemonproject.repository.PokemonRepository
@@ -30,6 +31,14 @@ class AboutPokemonActivity : AppCompatActivity() {
                 }
             }
             binding.typeEmpty.text = types
+        }
+        else {
+            Log.e("pokemonIsNull", "Pokemon with ${pokemonId} is not exist")
+            binding.pokemonImage.setImageResource(R.drawable.ic_launcher_background)
+            binding.nameEmpty.text = "Not Found"
+            binding.weightEmpty.text = "Not Found"
+            binding.heightEmpty.text = "Not Found"
+            binding.typeEmpty.text = "Not Found"
         }
 
         binding.backButton.setOnClickListener {
