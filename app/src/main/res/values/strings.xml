@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">PokemonProject</string>
-    <string name="name">Name:</string>
+    <string name="name">Name</string>
     <string name="types">Types:</string>
     <string name="weight">Weight:</string>
     <string name="height">Height:</string>
