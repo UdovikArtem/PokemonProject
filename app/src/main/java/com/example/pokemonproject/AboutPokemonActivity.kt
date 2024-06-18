@@ -24,23 +24,23 @@ class AboutPokemonActivity : AppCompatActivity() {
 
         with(binding) {
             pokemon?.let {
-                binding.pokemonImage.setImageResource(it.imageRes)
-                binding.name.text = it.name
-                binding.weight.text = "Weight: ${it.weight} kg"
-                binding.height.text = "Height: ${it.height} cm"
+                pokemonImage.setImageResource(it.imageRes)
+                name.text = it.name
+                weight.text = "Weight: ${it.weight} kg"
+                height.text = "Height: ${it.height} cm"
 
-                binding.typeLayout.apply {
+                typeLayout.apply {
                     it.type.forEach {type ->
                         this.addView(createTypeText(type))
                     }
                 }
             } ?: run {
                 Log.e("pokemonIsNull", "Pokemon with ${pokemonId} is not exist")
-                binding.pokemonImage.setImageResource(R.drawable.ic_launcher_background)
-                binding.name.text = "Not Found"
-                binding.weight.text = "Weight: Not Found"
-                binding.height.text = "Height: Not Found"
-                binding.typeLayout.addView(createTypeText("Not Found"))
+                pokemonImage.setImageResource(R.drawable.ic_launcher_background)
+                name.text = "Not Found"
+                weight.text = "Weight: Not Found"
+                height.text = "Height: Not Found"
+                typeLayout.addView(createTypeText("Not Found"))
             }
         }
         binding.backButton.setOnClickListener {

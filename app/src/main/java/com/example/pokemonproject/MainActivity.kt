@@ -2,7 +2,10 @@ package com.example.pokemonproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.TypedValue
+import android.util.TypedValue.COMPLEX_UNIT_DIP
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.GridLayout.TEXT_ALIGNMENT_CENTER
 import android.widget.ImageView
@@ -12,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.setMargins
 import com.example.pokemonproject.databinding.ActivityMainBinding
+import com.example.pokemonproject.databinding.PokemonCardBinding
 import com.example.pokemonproject.model.Pokemon
 import com.example.pokemonproject.repository.PokemonRepository
 
@@ -35,65 +39,95 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createPokemonCard(pokemon: Pokemon): CardView {
-        val cardView = CardView(this).apply {
+
+        val cardBinding = PokemonCardBinding.inflate(LayoutInflater.from(this))
+
+        val cardView = cardBinding.cardView.apply {
             layoutParams = ViewGroup.MarginLayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             ).apply {
                 setMargins(dpToPx(10))
             }
-            setCardBackgroundColor(getColor(R.color.orange))
-            radius = 20f
             setOnClickListener {
                 val intent = Intent(
                     this@MainActivity,
-                    AboutPokemonActivity::class.java).apply {
-                            putExtra("id", pokemon.id)
-                    }
+                    AboutPokemonActivity::class.java
+                ).apply {
+                    putExtra("id", pokemon.id)
+                }
                 this@MainActivity.startActivity(intent)
             }
         }
 
-        val linearLayout = LinearLayout(this).apply {
-            orientation = LinearLayout.HORIZONTAL
-            layoutParams = ViewGroup.MarginLayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                dpToPx(100)
-            )
+        with(cardBinding){
+            imageView.setImageResource(pokemon.imageRes)
+            textView.text = pokemon.name
         }
-
-        val imageView = ImageView(this).apply {
-            layoutParams = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                2f
-            )
-            setImageResource(pokemon.imageRes)
-        }
-
-        val textView = TextView(this).apply {
-            layoutParams = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                1f
-            )
-            gravity = Gravity.CENTER
-            text = pokemon.name
-            textSize = 40f
-            setTextColor(getColor(R.color.white))
-            textAlignment = TEXT_ALIGNMENT_CENTER
-        }
-
-        linearLayout.apply {
-            addView(imageView)
-            addView(textView)
-        }
-        cardView.addView(linearLayout)
 
         return cardView
     }
 
+//        val cardView = CardView(this).apply {
+//            layoutParams = ViewGroup.MarginLayoutParams(
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT
+//            ).apply {
+//                setMargins(dpToPx(10))
+//            }
+//            setCardBackgroundColor(getColor(R.color.orange))
+//            radius = 20f
+//            setOnClickListener {
+//                val intent = Intent(
+//                    this@MainActivity,
+//                    AboutPokemonActivity::class.java).apply {
+//                            putExtra("id", pokemon.id)
+//                    }
+//                this@MainActivity.startActivity(intent)
+//            }
+//        }
+//
+//        val linearLayout = LinearLayout(this).apply {
+//            orientation = LinearLayout.HORIZONTAL
+//            layoutParams = ViewGroup.MarginLayoutParams(
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                dpToPx(100)
+//            )
+//        }
+//
+//        val imageView = ImageView(this).apply {
+//            layoutParams = LinearLayout.LayoutParams(
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT,
+//                2f
+//            )
+//            setImageResource(pokemon.imageRes)
+//        }
+//
+//        val textView = TextView(this).apply {
+//            layoutParams = LinearLayout.LayoutParams(
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                1f
+//            )
+//            gravity = Gravity.CENTER
+//            text = pokemon.name
+//            textSize = 40f
+//            setTextColor(getColor(R.color.white))
+//            textAlignment = TEXT_ALIGNMENT_CENTER
+//        }
+//
+//        linearLayout.apply {
+//            addView(imageView)
+//            addView(textView)
+//        }
+//        cardView.addView(linearLayout)
+//
+//        return cardView
     private fun dpToPx(dp: Int): Int {
-        return (dp*resources.displayMetrics.density).toInt()
+        return TypedValue.applyDimension(
+            COMPLEX_UNIT_DIP,
+            dp + 0.5f,
+            resources.displayMetrics).toInt()
     }
 }
