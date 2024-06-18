@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.view.setMargins
 import com.example.pokemonproject.databinding.ActivityMainBinding
 import com.example.pokemonproject.model.Pokemon
 import com.example.pokemonproject.repository.PokemonRepository
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             ).apply {
-                dpToPx(10)
+                setMargins(dpToPx(10))
             }
             setCardBackgroundColor(getColor(R.color.orange))
             radius = 20f
