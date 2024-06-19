@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     private fun dpToPx(dp: Int): Int {
         return TypedValue.applyDimension(
             COMPLEX_UNIT_DIP,
-            dp + 0.5f,
+            dp.toFloat(),
             resources.displayMetrics).toInt()
     }
 }
