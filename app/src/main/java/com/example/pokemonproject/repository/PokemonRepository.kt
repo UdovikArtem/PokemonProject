@@ -11,7 +11,7 @@ object PokemonRepository {
             weight = 69,
             height = 7,
             type = listOf("Grass","Poison"),
-            image = R.drawable.pokemon1
+            imageRes = R.drawable.pokemon1
         ),
         Pokemon(
             id = 2,
@@ -19,7 +19,7 @@ object PokemonRepository {
             weight = 130,
             height = 10,
             type = listOf("Grass","Poison"),
-            image = R.drawable.pokemon2
+            imageRes = R.drawable.pokemon2
         ),
         Pokemon(
             id = 3,
@@ -27,7 +27,7 @@ object PokemonRepository {
             weight = 1000,
             height = 20,
             type = listOf("Grass","Poison"),
-            image = R.drawable.pokemon3
+            imageRes = R.drawable.pokemon3
         ),
         Pokemon(
             id = 4,
@@ -35,7 +35,7 @@ object PokemonRepository {
             weight = 85,
             height = 6,
             type = listOf("Fire"),
-            image = R.drawable.pokemon4
+            imageRes = R.drawable.pokemon4
         ),
         Pokemon(
             id = 5,
@@ -43,11 +43,10 @@ object PokemonRepository {
             weight = 190,
             height = 11,
             type = listOf("Fire"),
-            image = R.drawable.pokemon5
+            imageRes = R.drawable.pokemon5
         )
     ).associateBy { it.id })
 
-    fun getPokemonById(id: Int): Pokemon?{
-        return pokemons[id]
-    }
+    fun getPokemons(): HashMap<Int, Pokemon> = pokemons
+    fun getPokemonById(id: Int): Pokemon? = pokemons[id]
 }
