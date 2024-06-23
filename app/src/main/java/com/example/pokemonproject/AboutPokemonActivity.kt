@@ -2,7 +2,6 @@ package com.example.pokemonproject
 
 import android.os.Bundle
 import android.util.Log
-import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -59,10 +58,7 @@ class AboutPokemonActivity : AppCompatActivity() {
             textSize = 20f
             text = type
             setTextColor(getColor(R.color.black))
-            setPadding(TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                5f,
-                resources.displayMetrics).toInt())
+            setPadding(5.dpToPx(this@AboutPokemonActivity))
         }
         return textView
     }

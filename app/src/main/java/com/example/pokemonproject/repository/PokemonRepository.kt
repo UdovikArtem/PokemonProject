@@ -44,9 +44,49 @@ object PokemonRepository {
             height = 11,
             type = listOf("Fire"),
             imageRes = R.drawable.pokemon5
+        ),
+        Pokemon(
+            id = 6,
+            name = "Charizard",
+            weight = 905,
+            height = 17,
+            type = listOf("Fire","Flying"),
+            imageRes = R.drawable.pokemon6
+        ),
+        Pokemon(
+            id = 7,
+            name = "Squirtle",
+            weight = 90,
+            height = 5,
+            type = listOf("Water"),
+            imageRes = R.drawable.pokemon7
+        ),
+        Pokemon(
+            id = 8,
+            name = "Wartortle",
+            weight = 225,
+            height = 10,
+            type = listOf("Water"),
+            imageRes = R.drawable.pokemon8
+        ),
+        Pokemon(
+            id = 9,
+            name = "Blastoise",
+            weight = 855,
+            height = 16,
+            type = listOf("Water"),
+            imageRes = R.drawable.pokemon9
+        ),
+        Pokemon(
+            id = 10,
+            name = "Caterpie",
+            weight = 29,
+            height = 3,
+            type = listOf("Bug"),
+            imageRes = R.drawable.pokemon10
         )
     ).associateBy { it.id })
 
-    fun getPokemons(): HashMap<Int, Pokemon> = pokemons
+    fun getPokemons(): List<Pokemon> = pokemons.values.toList()
     fun getPokemonById(id: Int): Pokemon? = pokemons[id]
 }
