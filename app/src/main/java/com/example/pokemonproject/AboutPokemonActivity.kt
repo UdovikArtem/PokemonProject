@@ -58,7 +58,7 @@ class AboutPokemonActivity : AppCompatActivity() {
             textSize = 20f
             text = type
             setTextColor(getColor(R.color.black))
-            setPadding(this@AboutPokemonActivity.dpToPx(5))
+            setPadding(5.dpToPx(this@AboutPokemonActivity))
         }
         return textView
     }

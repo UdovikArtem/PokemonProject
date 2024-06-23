@@ -5,9 +5,9 @@ import android.util.TypedValue
 import android.util.TypedValue.COMPLEX_UNIT_DIP
 
 
-fun Context.dpToPx(dp: Int): Int {
+fun Int.dpToPx(context: Context): Int {
     return TypedValue.applyDimension(
         COMPLEX_UNIT_DIP,
-        dp.toFloat(),
-        resources.displayMetrics).toInt()
+        this.toFloat(),
+        context.resources.displayMetrics).toInt()
 }
