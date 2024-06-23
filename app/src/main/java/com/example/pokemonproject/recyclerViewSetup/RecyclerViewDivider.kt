@@ -7,11 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemonproject.dpToPx
 
 class RecyclerViewDivider(
-    context: Context,
+    private var context: Context,
     resId: Int
 ) : RecyclerView.ItemDecoration() {
 
-    private var context = context
     private var divider = ContextCompat.getDrawable(context, resId)!!
 
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
