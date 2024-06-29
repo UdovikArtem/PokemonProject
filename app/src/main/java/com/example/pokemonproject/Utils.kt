@@ -9,5 +9,6 @@ fun Int.dpToPx(context: Context): Int {
     return TypedValue.applyDimension(
         COMPLEX_UNIT_DIP,
         this.toFloat(),
-        context.resources.displayMetrics).toInt()
+        context.resources.displayMetrics
+    ).toInt()
 }
