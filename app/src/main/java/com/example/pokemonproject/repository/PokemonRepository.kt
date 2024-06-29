@@ -10,7 +10,7 @@ object PokemonRepository {
             name = "Bulbasaur",
             weight = 69,
             height = 7,
-            type = listOf("Grass","Poison"),
+            type = listOf("Grass", "Poison"),
             imageRes = R.drawable.pokemon1
         ),
         Pokemon(
@@ -18,7 +18,7 @@ object PokemonRepository {
             name = "Ivysaur",
             weight = 130,
             height = 10,
-            type = listOf("Grass","Poison"),
+            type = listOf("Grass", "Poison"),
             imageRes = R.drawable.pokemon2
         ),
         Pokemon(
@@ -26,7 +26,7 @@ object PokemonRepository {
             name = "Venusaur",
             weight = 1000,
             height = 20,
-            type = listOf("Grass","Poison"),
+            type = listOf("Grass", "Poison"),
             imageRes = R.drawable.pokemon3
         ),
         Pokemon(
@@ -50,7 +50,7 @@ object PokemonRepository {
             name = "Charizard",
             weight = 905,
             height = 17,
-            type = listOf("Fire","Flying"),
+            type = listOf("Fire", "Flying"),
             imageRes = R.drawable.pokemon6
         ),
         Pokemon(

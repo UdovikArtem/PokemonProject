@@ -30,7 +30,7 @@ class AboutPokemonActivity : AppCompatActivity() {
                 height.text = "Height: ${it.height} cm"
 
                 typeLayout.apply {
-                    it.type.forEach {type ->
+                    it.type.forEach { type ->
                         this.addView(createTypeText(type))
                     }
                 }

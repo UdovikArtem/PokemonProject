@@ -6,13 +6,13 @@ import com.example.pokemonproject.model.Pokemon
 
 class PokemonViewHolder(
     private val binding: PokemonCardBinding
-): ViewHolder(binding.root) {
+) : ViewHolder(binding.root) {
 
-    fun bind(model: Pokemon, onClick: (Pokemon) -> Unit){
-        binding.apply{
-          imageView.setImageResource(model.imageRes)
-          textView.text = model.name
-          root.setOnClickListener { onClick(model) }
+    fun bind(model: Pokemon, onClick: (Pokemon) -> Unit) {
+        binding.apply {
+            imageView.setImageResource(model.imageRes)
+            textView.text = model.name
+            root.setOnClickListener { onClick(model) }
         }
     }
 }
