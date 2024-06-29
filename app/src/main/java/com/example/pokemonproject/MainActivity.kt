@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = PokemonListAdapter()
 
-        adapter.onClick = {pokemon ->
+        adapter.onClick = { pokemon ->
             val intent = Intent(this, AboutPokemonActivity::class.java).apply {
                 putExtra("id", pokemon.id)
             }

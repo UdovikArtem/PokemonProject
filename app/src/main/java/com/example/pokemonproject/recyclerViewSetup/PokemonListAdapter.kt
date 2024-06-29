@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemonproject.databinding.PokemonCardBinding
 import com.example.pokemonproject.model.Pokemon
 
-class PokemonListAdapter: RecyclerView.Adapter<PokemonViewHolder>() {
+class PokemonListAdapter : RecyclerView.Adapter<PokemonViewHolder>() {
 
     private var items = emptyList<Pokemon>()
 
@@ -15,7 +15,7 @@ class PokemonListAdapter: RecyclerView.Adapter<PokemonViewHolder>() {
 
     var onClick: (Pokemon) -> Unit = { }
 
-    fun submitItems(newItems: List<Pokemon>){
+    fun submitItems(newItems: List<Pokemon>) {
         items = newItems
         differ.submitList(newItems)
     }
